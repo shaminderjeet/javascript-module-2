@@ -27,6 +27,11 @@ Task 2
 
 When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
 */
+let alertButton = document.querySelector("#alertBtn");
+alertButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  alert("Thanks for visiting Bikes for Refugees!");
+});
 
 
 /*
@@ -35,7 +40,17 @@ Task 3
 
 Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
 */
+const btn = document.getElementById("bgrChangeBtn");
+const changeColor = (color) => {
+  // 👇️ change background color
 
+  document.body.style.backgroundColor = color;
+
+  // 👇️ optionally change text color
+  // document.body.style.color = 'white';
+};
+
+btn.addEventListener("click", () => changeColor("red"));
 
 /*
 Task 4
@@ -44,6 +59,14 @@ Task 4
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
 
+const addTextBtn = document.querySelector("#addTextBtn");
+const mainArticles = document.querySelector("#mainArticles");
+const addText = (text) => {
+  const paragraph = document.createElement("p");
+  paragraph.innerText = text;
+  mainArticles.appendChild(paragraph);
+};
+addTextBtn.addEventListener("click", () => addText("My Study"));
 
 
 /*
@@ -52,6 +75,14 @@ Task 5
 
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
+const largerLinkAdd = document.querySelector("#largerLinksBtn");
+largerLinkAdd.addEventListener("click", largerLinks);
+function largerLinks() {
+  var linksToChange = document.querySelectorAll("a");
+  for (var i = 0; i < linksToChange.length; i++) {
+    linksToChange[i].style.fontSize = "x-Large";
+  }
+}
 
 
 /*
@@ -62,6 +93,12 @@ Using the same function in Task 4,
 When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
 Also clear the text inside the input field
 */
+const addArticleBtn = document.getElementById("addArticleBtn");
+addArticleBtn.addEventListener("click", event => {
+  let addArticle = document.querySelector(".addArticle");
+  addText(addArticle.value);
+  addArticle.value = "";
+});
 
 /*
 Task 7
@@ -71,4 +108,14 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
+let colorsPass = ["blue", "purple", "yellow", "orange", "red"];
+let index = 0;
 
+const changeDifferntColor = () => {
+  if (index > colorsPass.length - 1) {
+    index = 0;
+  }
+  changeColor(colorsPass[index]);
+  index++;
+};
+btn.addEventListener("click", changeDifferntColor);
