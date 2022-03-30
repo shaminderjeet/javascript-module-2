@@ -38,14 +38,15 @@ submitbuton.addEventListener("click",event => {
     const describeYourSelf = document.getElementById("exampleTextarea")
     if(inputName.value.length > 0 && emailAddress.value.length > 0 && emailAddress.value.includes("@") && describeYourSelf.value.length>0){
      alert("thanku for filling the form")
+     inputName.value="";
+     emailAddress.value="";
+     describeYourSelf.value="";
     }
-     else{
-       inputName.style.backgroundColor="red";
-       emailAddress.style.backgroundColor="red";
-       describeYourSelf.style.backgroundColor="red";
-        }
-      
-     }
-        
+    //  else{
+    //    inputName.style.backgroundColor="red";
+    //    emailAddress.style.backgroundColor="red";
+    //    describeYourSelf.style.backgroundColor="red";
+    //     }
      
-)
+    })
+     
