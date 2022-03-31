@@ -30,23 +30,20 @@ volunteer.style.backgroundColor='8c9c08';
 
 })
 
-const submitbuton = document.querySelector("button[type=submit]")
-submitbuton.addEventListener("click",event => {
-    event.preventDefault();
-    const inputName = document.getElementById("example-text-input")
-    const emailAddress = document.getElementById("exampleInputEmail1")
-    const describeYourSelf = document.getElementById("exampleTextarea")
-    if(inputName.value.length > 0 && emailAddress.value.length > 0 && emailAddress.value.includes("@") && describeYourSelf.value.length>0){
-     alert("thanku for filling the form")
-     inputName.value="";
-     emailAddress.value="";
-     describeYourSelf.value="";
+const submitButton = document.querySelector("form button");
+submitButton.addEventListener("click", function () {
+  const allInputs = document.querySelectorAll("form input,textarea");
+  let allInputsValid = true;
+  allInputs.forEach(function (el) {
+    if (el.value === "" || (el.type === "email" && !el.value.includes("@"))) {
+      el.style.backgroundColor = "red";
+      allInputsValid = false;
     }
-    //  else{
-    //    inputName.style.backgroundColor="red";
-    //    emailAddress.style.backgroundColor="red";
-    //    describeYourSelf.style.backgroundColor="red";
-    //     }
-     
-    })
-     
+  });
+  if (allInputsValid) {
+    alert("Thank you!");
+    allInputs.forEach(function (el) {
+      el.value = "";
+    });
+  }
+});
