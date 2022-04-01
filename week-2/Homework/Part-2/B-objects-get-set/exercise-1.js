@@ -9,4 +9,4 @@ var kitten = {
 };
 
 // YOUR CODE HERE
-
+console.log(Object.values(kitten))

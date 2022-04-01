@@ -1,18 +1,22 @@
-/**
- *
- * For each of the names in the array passed into this function
- *
- * - Add a <h1> tag to the website containing the name of the person
- * - Add a <h2> tag to the website containing the job of the person
- *
- * All of your HTML should go inside the Div tag with the id "content".
- *
- * <div id="content">
- *      <h1>{Name Here}</h1>
- *      <h2>{Job Here}</h2>
- *      .....
- * </div>
- */
+
+//  *
+//  * For each of the names in the array passed into this function
+//  *
+//  * - Add a <h1> tag to the website containing the name of the person
+//  * - Add a <h2> tag to the website containing the job of the person
+//  *
+//  * All of your HTML should go inside the Div tag with the id "content".
+//  * 
+
+ <div id="content">
+     <h1>{Name}</h1>
+     <h2>{Job}</h2>
+ var h = document.createElement("H1");
+var t = document.createTextNode("Your H1 text"); 
+document.body.appendChild(h);
+      
+ </div>
+ 
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
 }

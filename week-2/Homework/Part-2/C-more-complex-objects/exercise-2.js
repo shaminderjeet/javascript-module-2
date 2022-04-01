@@ -17,7 +17,9 @@ let newCurrentOwner = {
   firstName: "Georgina",
   lastName: "Hernandez",
 };
-
+newCurrentOwner=house['currentOwner']
+house.previousOwners[1]="Stephen B."
+house['isForSale']=false
 /*
   DO NOT EDIT ANYTHING ABOVE THIS LINE
 
