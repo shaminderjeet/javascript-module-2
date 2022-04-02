@@ -38,13 +38,11 @@ let travelDestinations = [destination1, destination2, destination3, destination4
 DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
-let destinationNamesWithin500Kms = travelDestinations.filter(e=>e.distanceKms<=500)// Complete here
- console.log(destinationNamesWithin500Kms)
-let destinationNameReachableByFerry = travelDestinations.find(e =>e.transportations==="feery")// Complete here
+let destinationNamesWithin500Kms = travelDestinations.filter(destination => destination.distanceKms < 500).map(destination => destination.destinationName)
 
-let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
+let destinationNameReachableByFerry = travelDestinations.find(destination => destination.transportations.includes("ferry")).destinationName
 
-
+let destinationNamesMoreThan300KmsAwayByTrain = travelDestinations.filter(destination => destination.distanceKms > 300 && destination.transportations.includes("train")).map(destination => destination.destinationName)
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */

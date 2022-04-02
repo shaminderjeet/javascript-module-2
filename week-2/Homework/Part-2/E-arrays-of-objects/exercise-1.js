@@ -31,7 +31,7 @@ let personNames = persons.map(e=>e.name)
     console.log(personNames)
 // Complete here
 function age(persons){
-    return persons.age>28;
+    return persons.age<28;
 }
 let personsYoungerThan28YearsOld = persons.filter(age)
 console.log(personsYoungerThan28YearsOld)
