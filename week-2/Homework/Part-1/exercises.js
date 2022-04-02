@@ -1,4 +1,3 @@
-
 //  *
 //  * For each of the names in the array passed into this function
 //  *
@@ -6,19 +5,23 @@
 //  * - Add a <h2> tag to the website containing the job of the person
 //  *
 //  * All of your HTML should go inside the Div tag with the id "content".
-//  * 
+//  *
 
- <div id="content">
-     <h1>{Name}</h1>
-     <h2>{Job}</h2>
- var h = document.createElement("H1");
-var t = document.createTextNode("Your H1 text"); 
-document.body.appendChild(h);
-      
- </div>
- 
+//  <div id="content">
+//      <h1>{Name}</h1>
+//      <h2>{Job}</h2>
+//  </div>
+
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
+  arrayOfPeople.forEach((person) => {
+    const nameTitle = document.createElement("h1");
+    const jobTitle = document.createElement("h2");
+    nameTitle.textContent = person.name;
+    jobTitle.textContent = person.job;
+    content.appendChild(nameTitle);
+    content.appendChild(jobTitle);
+  });
 }
 
 /**
@@ -29,7 +32,15 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  let content = document.querySelector("#content");
+  const unorderedList = document.createElement("ul");
+  content.appendChild(unorderedList);
+
+  shopping.forEach((shoppingList) => {
+    let li = document.createElement("li");
+    li.textContent = shoppingList;
+    unorderedList.appendChild(li);
+  });
 }
 
 /**
@@ -62,7 +73,31 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+  // books.forEach(e=>
+  //   {
+  //     const paragraph=document.createElement("p")
+  //     paragraph.textContent = e.title;
+  //     paragraph.textContent=e.author;
+  let content = document.querySelector("#content");
+  const list = document.createElement("ul");
+  content.appendChild(list);
+  books.forEach((book) => {
+    const listItems = document.createElement("li");
+    const paragraph = document.createElement("p");
+    const image = document.createElement("img");
+    image.src = book.url;
+
+    paragraph.textContent = book.title;
+    paragraph.textContent = book.author;
+    if (book.alreadyRead) {
+      listItems.classList.add("alreadyRead");
+    } else {
+      listItems.classList.add("IHaventReadThisBook");
+    }
+    listItems.appendChild(paragraph);
+    listItems.appendChild(image);
+    list.appendChild(listItems);
+  });
 }
 
 //
@@ -78,7 +113,7 @@ function exerciseThree(books) {
 let people = [
   { name: "Chris", job: "Teacher" },
   { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
+  { name: "Boris", job: "Prime Minister" },
 ];
 
 exerciseOne(people);
@@ -91,18 +126,19 @@ const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
-    alreadyRead: false
+    alreadyRead: false,
+    src: "",
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
-  }
+    alreadyRead: true,
+  },
 ];
 
 exerciseThree(books);

@@ -38,11 +38,9 @@ let travelDestinations = [destination1, destination2, destination3, destination4
 DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
-
-
-let destinationNamesWithin500Kms = travelDestinations.forEach(e// Complete here
-comsole.log(destinationNamesWithin500Kms)
-let destinationNameReachableByFerry = // Complete here
+let destinationNamesWithin500Kms = travelDestinations.filter(e=>e.distanceKms<=500)// Complete here
+ console.log(destinationNamesWithin500Kms)
+let destinationNameReachableByFerry = travelDestinations.find(e =>e.transportations==="feery")// Complete here
 
 let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESULT IN THE CONSOLE USING FOREACH)
 
