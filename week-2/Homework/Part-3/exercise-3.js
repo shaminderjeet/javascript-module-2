@@ -16,8 +16,17 @@ let coffeeMachine = {
       flatWhite: 3.0,
     },
     insertedAmount: 0,
-    insertMoney: function (amount) {},
-    getCoffee: function (coffee) {},
+    insertMoney: function (amount) {
+      for(let key in amount){
+        
+         if(amount[key]>=coffeeMachine["prices"]){
+          console.log() 
+       }
+     }
+    },
+    getCoffee: function (coffee) {
+      
+    },
   };
   
   /*
