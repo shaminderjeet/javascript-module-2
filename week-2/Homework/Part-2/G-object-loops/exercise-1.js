@@ -7,10 +7,14 @@ const studentGrades = {
     george: 17,
     abdul: 19,
   };
-  for (let prop in studentGrades) {
-    // if(prop>18){
-    console.log(`studentGrades.${prop} = ${studentGrades[prop]}`);
+   for (let prop in studentGrades) {
+    if(studentGrades[prop]>18){
+     console.log(`${prop.toUpperCase()} = ${studentGrades[prop]}`);
+    }
   }
+   
+  
+  
 
   
   
