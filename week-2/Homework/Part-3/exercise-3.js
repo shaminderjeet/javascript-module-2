@@ -17,14 +17,19 @@ let coffeeMachine = {
     },
     insertedAmount: 0,
     insertMoney: function (amount) {
-      for(let key in amount){
-        
-         if(amount[key]>=coffeeMachine["prices"]){
-          console.log() 
-       }
-     }
+     this.insertedAmount+=amount
+      console.log(this.insertedAmount)
+     
     },
     getCoffee: function (coffee) {
+      if(this.insertedAmount>=this.prices[coffee]){
+       this.insertedAmount=this.insertedAmount-this.prices[coffee]
+        return true
+      }
+      else{
+        return false;
+      }
+
       
     },
   };
