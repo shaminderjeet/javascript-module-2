@@ -51,16 +51,25 @@ var shoppingCart = {
 };
 
 function addToShoppingCart(id){
-
+  shoppingCart.selectedProducts.push(products.filter((x) => x.id === id));
+  let arrToNumber = products.filter((x) => x.id === id).map((x) => x.price);
+  shoppingCart.totalPrice += arrToNumber[0];
 }
 
 function removeFromShoppingCart(id){
-
+  shoppingCart.selectedProducts.pop(products.filter((x) => x.id === id));
+  let arrToNumber = products.filter((x) => x.id === id).map((x) => x.price);
+  shoppingCart.totalPrice -= arrToNumber[0];
 }
 
 function shop(){
+  products.filter((x) => x.name === shoppingCart.selectedProducts[0][0].name)
+  .map((x) => (x.stock -= 1));
 
+shoppingCart.totalPrice = 0;
+shoppingCart.selectedProducts = [];
 }
+
 
 //results
 addToShoppingCart(1);
