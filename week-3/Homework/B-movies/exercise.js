@@ -59,9 +59,30 @@ var movies = [
 ];
 
 // create showMovies function
+const selectDiv = document.getElementById("all-movies");
+const movieNumber = document.getElementById("movies-number");
+function showMovies() {
+  // console.log(selectDiv)
+  movies.forEach((e) => {
+    const paragraph = document.createElement("p");
+    const infoTitle = e.title + " " + e.director;
+    paragraph.innerText = infoTitle;
+    selectDiv.appendChild(paragraph);
 
+    movieNumber.innerText = movies.length;
+    //  console.log(movieNumber)
+  });
+}
+showMovies();
+// task 2
+setTimeout(() => {
+  showMovies, 1000;
+});
+
+const addMovies=()=>{
+
+}
 
 // create a new movie object for your favorite movie
-
 
 // create addMovies function
