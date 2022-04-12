@@ -5,8 +5,12 @@ function setAlarm() {
 
   const intervalId = setInterval(() => {
     time = time - 1;
+    if(time<10){
+      timeRemaining.textContent = "Time Remaining: 00:0"  + time;
+    }
+    else{
     timeRemaining.textContent = "Time Remaining: 00:" + time;
-
+    }
     if (time === 0) {
       clearInterval(intervalId);
       playAlarm();
