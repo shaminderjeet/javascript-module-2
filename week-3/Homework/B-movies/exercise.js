@@ -62,27 +62,90 @@ var movies = [
 const selectDiv = document.getElementById("all-movies");
 const movieNumber = document.getElementById("movies-number");
 function showMovies() {
-  // console.log(selectDiv)
+  console.log("showMovies")
   movies.forEach((e) => {
     const paragraph = document.createElement("p");
     const infoTitle = e.title + " " + e.director;
     paragraph.innerText = infoTitle;
     selectDiv.appendChild(paragraph);
-
-    movieNumber.innerText = movies.length;
+movieNumber.innerText = movies.length;
     //  console.log(movieNumber)
-  });
-}
-showMovies();
-// task 2
+    })
+    
+  };
+  
+
+const myMovie = {
+  title: "spiderman",
+  director: "si",
+  type: "adventures",
+  haveWatched: true,
+};
+
+const addMovie = (movie) => {
+  console.log("addMovie");
+  // setTimeout(() => {
+    movies.push(movie);
+    // console.log(movies);
+  };
+  setTimeout(() => {
+    showMovies()
+  }, 500);
 setTimeout(() => {
-  showMovies, 1000;
-});
+  addMovie(myMovie);
+ }, 200);
+ 
+ const  form = document.createElement("form");
+ // Create an input element for Full Name
+ const titleInput = document.createElement("input");
+titleInput.setAttribute("type", "text");
+titleInput.setAttribute("name", "title");
+titleInput.setAttribute("placeholder", "title");
 
-const addMovies=()=>{
+ const directorInput = document.createElement("input");
+ directorInput.setAttribute("type", "text");
+ directorInput.setAttribute("name", "director");
+ directorInput.setAttribute("placeholder", "director");
 
-}
+ const typeInput = document.createElement("input");
+ typeInput.setAttribute("type", "text");
+ typeInput.setAttribute("name", "type");
+ typeInput.setAttribute("placeholder", "type");
 
-// create a new movie object for your favorite movie
+ const haveWatchedInput = document.createElement("input");
+ haveWatchedInput.setAttribute("type", "text");
+ haveWatchedInput.setAttribute("name", "haveWatched");
+ haveWatchedInput.setAttribute("placeholder", "haveWatched");
 
-// create addMovies function
+ 
+ const saveButton = document.createElement("input");
+ saveButton.setAttribute("type", "submit");
+ saveButton.setAttribute("name", "haveWatched");
+  saveButton.setAttribute("value", "Save");
+  saveButton.addEventListener("click",(e) =>{
+
+    e.preventDefault()
+    var myMovie=
+    {
+      title: titleInput.value,
+      director:directorInput.value ,
+      type: typeInput.value,
+      haveWatched:haveWatchedInput.value ,
+    }
+    //console.log( "title",titleInput.value)
+// movies.push(myMovie)
+addMovie(myMovie)
+console.log(movies)
+showMovies()
+})
+form.appendChild(titleInput)
+ form.appendChild(directorInput)
+ form.appendChild(typeInput) 
+ form.appendChild(haveWatchedInput)
+ form.appendChild(saveButton)
+ selectDiv.appendChild(form)
+
+
+
+
+
